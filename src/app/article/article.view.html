@@ -1,31 +1,30 @@
-<div class="row">
-
-    <div class="container-fluid">
-        <a ui-sref="^.list()" class="btn btn-default">Articles List</a>
-
-        <h2>{{articleView.current.fullTitle}}</h2>
-
-        <hr>
-
-        <p><span class="glyphicon glyphicon-time"></span> Posted on {{articleView.current.createdAt | date : shortDate}}</p>
-
-        <hr>
-
-        <p class="lead">{{articleView.current.summary}}</p>
-        <p>{{articleView.current.fullText}}</p>
-
-        <hr>
-
-        <h4>
-            Share:
-        </h4>
-
-        <p>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{articleUrl}}&t={{articleView.current.shortTitle}}" class="btn btn-primary">Facebook</a>
-            <a href="https://twitter.com/intent/tweet?source={{articleUrl}}&text={{articleView.current.shortTitle}}" class="btn btn-info">twitter</a>
-            <a href="https://plus.google.com/share?url={{articleUrl}}" class="btn btn-danger">g+</a>
-        </p>
-
+<h2>Article View</h2>
+<a ui-sref="^.list()" class="btn btn-default">Articles List</a>
+<form>
+    <div class="row">
+        <div class="form-group col-md-8">
+            <label class="control-label">Title</label>
+            <p class="form-control-static">{{articleView.current.fullTitle}}</p>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label">Posted on</label>
+            <p class="form-control-static">{{articleView.current.createdAt | date : shortDate}}</p>
+        </div>
+        <div class="form-group col-md-12">
+            <label class="control-label">Summary</label>
+            <p class="form-control-static">{{articleView.current.summary}}</p>
+        </div>
+        <div class="form-group col-md-12">
+            <label class="control-label">Full Text</label>
+            <p class="form-control-static">{{articleView.current.fullText}}</p>
+        </div>
+        <div class="form-group col-md-12">
+            <label class="control-label">Share</label>
+            <p class="form-control-static">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{articleUrl}}&t={{articleView.current.shortTitle}}" class="btn btn-primary">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?source={{articleUrl}}&text={{articleView.current.shortTitle}}" class="btn btn-info">twitter</a>
+                <a href="https://plus.google.com/share?url={{articleUrl}}" class="btn btn-danger">g+</a>
+            </p>
+        </div>
     </div>
-
-</div>
+</form>
