@@ -15,11 +15,11 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a ui-sref="home()">Home</a></li>
-                <li><a ng-href="#">About</a></li>
-                <li><a ng-href="#">Contact</a></li>
-                <li><a ng-href="#/articles">Articles</a></li>
-                <li><a ng-href="#/css-test">Css Test</a></li>
+                <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                <li ui-sref-active="active"><a ng-href="#">About</a></li>
+                <li ui-sref-active="active"><a ng-href="#">Contact</a></li>
+                <li ui-sref-active="active"><a ui-sref="articles.list">Articles</a></li>
+                <li ui-sref-active="active"><a ui-sref="css.list">Css Test</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right acme-navbar-text">
