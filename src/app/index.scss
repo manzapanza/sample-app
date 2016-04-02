@@ -98,13 +98,75 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   }
 }
 
-@media(max-width:767px){
+@media(max-width:768px){
   .column {
     padding: 4px !important;
   }
   .column-content{
     padding: 8px 4px !important;
   }
+}
+
+.comments-list{
+  .media{
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+  }
+  .interaction-line{
+    float: right;
+  }
+}
+
+@media(max-width:768px){
+  .comment-avatar{
+    width: 24px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.21);
+  }
+  .comment-name{
+    font-size: 120%;
+    font-weight: normal;
+  }
+  .interaction-line{
+    font-size: 60%;
+  }
+  .media{
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+}
+@media(max-width:1024px){
+  .comment-avatar{
+    width: 32px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.21);
+  }
+  .comment-name{
+    font-size: 120%;
+    font-weight: normal;
+  }
+  .interaction-line{
+    font-size: 60%;
+  }
+  .media{
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+}
+@media(min-width:1025px){
+  .comment-avatar{
+    width: 48px;
+    border-radius: 50%;
+  }
+  .comment-name{
+    font-size: 120%;
+    font-weight: normal;
+  }
+  .interaction-line{
+    font-size: 60%;
+  }
+
 }
 
 /**
