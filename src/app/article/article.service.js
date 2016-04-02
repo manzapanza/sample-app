@@ -66,6 +66,7 @@
             } else {
                 article.id = Math.floor(Math.random() * 20000) + 1;
                 article.updatedAt = new Date();
+                article.slug = convertStringToSlug(article.fullTitle);
                 service.articles.push(article);
                 showToastr('Article created', 'success');
                 d.resolve(article);
@@ -93,6 +94,13 @@
                     }
                 }
             }
+        }
+
+        function convertStringToSlug(string){
+            return string
+                .toLowerCase()
+                .replace(/ /g,'-')
+                .replace(/[^\w-]+/g,'');
         }
 
         function showToastr(message, type) {

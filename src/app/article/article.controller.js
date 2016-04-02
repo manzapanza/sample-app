@@ -56,8 +56,12 @@
         }
 
         vm.save = function (article) {
-            Article.save(article).then(function () {
-                $state.go('^.list');
+            Article.save(article).then(function (article) {
+                if ($state.params.slug){
+                    $state.go('^.list');
+                    return;
+                }
+                $state.go('^.edit', {slug: article.slug});
             });
         };
 
