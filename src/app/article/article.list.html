@@ -1,11 +1,20 @@
     <h2>Articles List</h2>
     <a ui-sref="^.create" class="button">Create article</a>
-    <table>
+    <table class="table table-bordered table-article-list">
         <tr>
-            <td ng-click="articles.sort('title')">Title</td>
-            <td ng-click="articles.sort('updatedAt')">Updated At</td>
-            <td ng-click="articles.sort('slug')">Slug</td>
-            <td>Action</td>
+            <th ng-click="articles.sort('title')">
+                Title
+                <span class="sortorder" ng-show="articles.orderBy === 'title'" ng-class="{reverse:articles.orderByReverse}"></span>
+            </th>
+            <th ng-click="articles.sort('updatedAt')">
+                Updated At
+                <span class="sortorder" ng-show="articles.orderBy === 'updatedAt'" ng-class="{reverse:articles.orderByReverse}"></span>
+            </th>
+            <th ng-click="articles.sort('slug')">
+                Slug
+                <span class="sortorder" ng-show="articles.orderBy === 'slug'" ng-class="{reverse:articles.orderByReverse}"></span>
+            </th>
+            <th>Action</th>
         </tr>
         <tr ng-repeat="item in articles.articles | orderBy : articles.orderBy : articles.orderByReverse">
             <td>
