@@ -1,0 +1,21 @@
+    <h2>Articles List</h2>
+    <a ui-sref="^.create" class="button">Create article</a>
+    <table>
+        <tr>
+            <td>Title</td>
+            <td>Updated At</td>
+            <td>Slug</td>
+            <td>Action</td>
+        </tr>
+        <tr ng-repeat="item in articles.articles">
+            <td>
+                <a ui-sref="^.edit({id: item.id})">{{item.fullTitle}}</a>
+            </td>
+            <td>{{item.updatedAt|date}}</td>
+            <td>{{item.slug}}</td>
+            <td>
+                <a ui-sref="^.view({id: item.id})">View</a>
+                <a href="" ng-click="articles.remove($index)">Remove</a>
+            </td>
+        </tr>
+    </table>
