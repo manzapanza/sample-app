@@ -12,6 +12,7 @@
             articles: [],
             find: find,
             findById: findById,
+            findBySlug: findBySlug,
             save: save,
             remove: remove
         };
@@ -30,10 +31,22 @@
             var d = $q.defer();
             if (!service.articles.length) {
                 service.find().then(function () {
-                    return d.resolve(iterateArray(id));
+                    return d.resolve(iterateArray('id', id));
                 })
             } else {
-                d.resolve(iterateArray(id));
+                d.resolve(iterateArray('id', id));
+            }
+            return d.promise;
+        }
+
+        function findBySlug(slug) {
+            var d = $q.defer();
+            if (!service.articles.length) {
+                service.find().then(function () {
+                    return d.resolve(iterateArray('slug', slug));
+                })
+            } else {
+                d.resolve(iterateArray('slug', slug));
             }
             return d.promise;
         }
@@ -65,11 +78,11 @@
 
 
         ///////PRIVATE METHODS/////////
-        function iterateArray(id) {
+        function iterateArray(field, value) {
             if (service.articles.length) {
                 for (var i = 0; i < service.articles.length; i++) {
                     var obj = service.articles[i];
-                    if (obj.id === id) {
+                    if (obj[field] === value) {
                         service.current = obj;
                         return obj;
                     }

@@ -9,7 +9,7 @@
         </tr>
         <tr ng-repeat="item in articles.articles">
             <td>
-                <a ui-sref="^.edit({id: item.id})">{{item.fullTitle}}</a>
+                <a ui-sref="^.edit({slug: item.slug})">{{item.fullTitle}}</a>
             </td>
             <td>{{item.updatedAt|date}}</td>
             <td>{{item.slug}}</td>

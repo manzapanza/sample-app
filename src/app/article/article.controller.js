@@ -36,11 +36,11 @@
     /** @ngInject */
     function ArticleEditController($state, Article) {
         var vm = this;
-        if ($state.params.id) {
+        if ($state.params.slug) {
 
             vm.editMode = true;
             console.log( Article);
-            Article.findById($state.params.id).then(function (res) {
+            Article.findBySlug($state.params.slug).then(function (res) {
                 vm.current = res;
             });
         }
