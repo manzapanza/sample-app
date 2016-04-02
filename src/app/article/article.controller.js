@@ -41,7 +41,7 @@
     }
 
     /** @ngInject */
-    function ArticleEditController($state, Article, languages) {
+    function ArticleEditController($scope, $state, Article, languages) {
         var vm = this;
         vm.languages = languages.data.languages;
 
@@ -50,10 +50,19 @@
             Article.findBySlug($state.params.slug).then(function (res) {
                 vm.previous = Article.previous;
                 vm.current = res;
+                vm.originalCurrent = angular.copy(vm.current);
                 vm.next = Article.next;
             });
-
         }
+
+        $scope.$on('$stateChangeStart', function( event ) {
+            if (!angular.equals(vm.originalCurrent, vm.current)){
+                var answer = confirm("Are you sure you want to leave this page?")
+                if (!answer) {
+                    event.preventDefault();
+                }
+            }
+        });
 
         vm.save = function (article) {
             Article.save(article).then(function (article) {
