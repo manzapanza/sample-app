@@ -6,9 +6,12 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($http, $log) {
+
+    $http.defaults.headers.common['Meplis-Security-Server'] = 'xpto-belgium';
 
     $log.debug('runBlock end');
+
   }
 
 })();
