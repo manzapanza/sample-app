@@ -41,10 +41,11 @@
     }
 
     /** @ngInject */
-    function ArticleEditController($state, Article) {
+    function ArticleEditController($state, Article, languages) {
         var vm = this;
-        if ($state.params.slug) {
+        vm.languages = languages.data.languages;
 
+        if ($state.params.slug) {
             vm.editMode = true;
             console.log( Article);
             Article.findBySlug($state.params.slug).then(function (res) {
@@ -57,5 +58,6 @@
                 $state.go('^.list');
             });
         };
+
     }
 })();

@@ -80,7 +80,12 @@
                 url: '/edit/:slug',
                 templateUrl: 'app/article/article.edit.html',
                 controller: 'ArticleEditController',
-                controllerAs: 'article'
+                controllerAs: 'article',
+                resolve: {
+                    languages: function(Language){
+                        return Language.find();
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/');
