@@ -74,5 +74,10 @@
             });
         };
 
+        vm.remove = function () {
+            Article.remove(Article.currentIndex);
+            $state.go('^.list');
+        }
+
     }
 })();

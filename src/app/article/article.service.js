@@ -10,6 +10,7 @@
             total: 0,
             previous: null,
             current: null,
+            currentIndex: null,
             next: null,
             articles: [],
             find: find,
@@ -89,6 +90,7 @@
                     if (obj[field] === value) {
                         service.previous = service.articles[(i+len-1)%len];
                         service.current = obj;
+                        service.currentIndex = i;
                         service.next = service.articles[(i+1)%len];
                         return obj;
                     }
