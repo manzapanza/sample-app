@@ -23,5 +23,18 @@
   "resolutions": {
     "jquery": "~2.1.4",
     "angular": "~1.4.0"
+  },
+  "overrides": {
+    "bootstrap-sass-official": {
+      "main": [
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2",
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
   }
 }
