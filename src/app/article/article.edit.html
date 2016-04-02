@@ -46,11 +46,11 @@
 <p>Jump to:</p>
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-default pull-right btn-primary" ui-sref="^.edit({slug: article.next.slug})">
+        <button type="button" class="btn btn-default pull-right btn-primary" ng-disabled="!article.next" ui-sref="^.edit({slug: article.next.slug})">
             Next
             <span class="glyphicon glyphicon-chevron-right"></span>
         </button>
-        <button type="button" class="btn btn-default btn-primary" ui-sref="^.edit({slug: article.previous.slug})">
+        <button type="button" class="btn btn-default btn-primary" ng-disabled="!article.previous" ui-sref="^.edit({slug: article.previous.slug})">
             <span class="glyphicon glyphicon-chevron-left"></span>
             Previous
         </button>
