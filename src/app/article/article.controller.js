@@ -33,11 +33,25 @@
     }
 
     /** @ngInject */
-    function ArticleViewController($state, Article) {
+    function ArticleViewController($http, $state, Article) {
         var vm = this;
         Article.findById($state.params.id).then(function (res) {
             vm.current = res;
+            vm.getAuthorGender(vm.current.authors[0].profile.name);
         });
+
+        // TODO: create a separate service fro genderize
+        vm.getAuthorGender = function(authorName){
+            var arrName = authorName.split(' ');
+            if (arrName.length > 1){
+                authorName = arrName[0];
+            }
+            var headers = $http.defaults.headers.common;
+            delete headers['Meplis-Security-Server'];
+            return $http.get('https://api.genderize.io/?name=' + authorName, {headers: headers}).success(function (res) {
+                vm.gender = res;
+            });
+        };
     }
 
     /** @ngInject */

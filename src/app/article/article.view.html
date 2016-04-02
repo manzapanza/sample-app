@@ -18,6 +18,15 @@
             <label class="control-label">Full Text</label>
             <p class="form-control-static">{{articleView.current.fullText}}</p>
         </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Author Name</label>
+            <p class="form-control-static">{{articleView.current.authors[0].profile.name}}</p>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Gender Author</label>
+            <p class="form-control-static">{{articleView.gender.gender ? articleView.gender.gender : ''}}</p>
+        </div>
+
         <div class="form-group col-md-12">
             <label class="control-label">Share</label>
             <p class="form-control-static">
