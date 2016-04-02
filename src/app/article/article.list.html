@@ -22,9 +22,15 @@
             </td>
             <td>{{item.updatedAt|date}}</td>
             <td>{{item.slug}}</td>
-            <td>
-                <a ui-sref="^.view({id: item.id})">View</a>
-                <a href="" ng-click="articles.remove($index)">Remove</a>
-            </td>
+            <th>
+                <button class="btn btn-primary" ui-sref="^.view({id: item.id})">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    View
+                </button>
+                <button class="btn btn-danger" ng-click="articles.remove($index)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Remove
+                </button>
+            </th>
         </tr>
     </table>
