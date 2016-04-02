@@ -66,7 +66,12 @@
                 url: '/create',
                 templateUrl: 'app/article/article.edit.html',
                 controller: 'ArticleEditController',
-                controllerAs: 'article'
+                controllerAs: 'article',
+                resolve: {
+                    languages: function(Language){
+                        return Language.find();
+                    }
+                }
             })
 
             .state('articles.view', {
