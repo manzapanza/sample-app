@@ -47,10 +47,12 @@
 
         if ($state.params.slug) {
             vm.editMode = true;
-            console.log( Article);
             Article.findBySlug($state.params.slug).then(function (res) {
+                vm.previous = Article.previous;
                 vm.current = res;
+                vm.next = Article.next;
             });
+
         }
 
         vm.save = function (article) {

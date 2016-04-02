@@ -8,7 +8,9 @@
     function Article($q, $http, toastr) {
         var service = {
             total: 0,
+            previous: null,
             current: null,
+            next: null,
             articles: [],
             find: find,
             findById: findById,
@@ -79,11 +81,14 @@
 
         ///////PRIVATE METHODS/////////
         function iterateArray(field, value) {
-            if (service.articles.length) {
+            var len = service.articles.length;
+            if (len) {
                 for (var i = 0; i < service.articles.length; i++) {
                     var obj = service.articles[i];
                     if (obj[field] === value) {
+                        service.previous = service.articles[(i+len-1)%len];
                         service.current = obj;
+                        service.next = service.articles[(i+1)%len];
                         return obj;
                     }
                 }

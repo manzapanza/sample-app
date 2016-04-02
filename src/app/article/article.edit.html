@@ -1,5 +1,7 @@
 <h2>Article {{article.editMode ? 'Edit' : 'Create'}}</h2>
 <a ui-sref="^.list()" class="button">Articles List</a>
+
+
 <form name="form" novalidate ma-validate-submit="article.save(article.current)">
     <div class="row">
         <div class="form-group col-md-6" ma-show-errors>
@@ -37,5 +39,23 @@
 
     </div>
 </form>
+
+
+
+<br>
+<p>Jump to:</p>
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-default pull-right btn-primary" ui-sref="^.edit({slug: article.next.slug})">
+            Next
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-primary" ui-sref="^.edit({slug: article.previous.slug})">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            Previous
+        </button>
+    </div>
+</div>
+
 <pre>{{article.current|json}}</pre>
 <button ng-if="article.editMode">Ola Edit</button>
