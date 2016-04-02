@@ -2,12 +2,12 @@
     <a ui-sref="^.create" class="button">Create article</a>
     <table>
         <tr>
-            <td>Title</td>
-            <td>Updated At</td>
-            <td>Slug</td>
+            <td ng-click="articles.sort('title')">Title</td>
+            <td ng-click="articles.sort('updatedAt')">Updated At</td>
+            <td ng-click="articles.sort('slug')">Slug</td>
             <td>Action</td>
         </tr>
-        <tr ng-repeat="item in articles.articles">
+        <tr ng-repeat="item in articles.articles | orderBy : articles.orderBy : articles.orderByReverse">
             <td>
                 <a ui-sref="^.edit({slug: item.slug})">{{item.fullTitle}}</a>
             </td>

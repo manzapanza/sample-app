@@ -23,6 +23,13 @@
             Article.remove(idx);
         }
 
+        vm.orderBy = 'title';
+        vm.orderByReverse = false;
+        vm.sort = function(field){
+            vm.orderBy = field;
+            vm.orderByReverse = (vm.orderBy === field) ? !vm.orderByReverse : false;
+        };
+
     }
 
     /** @ngInject */
